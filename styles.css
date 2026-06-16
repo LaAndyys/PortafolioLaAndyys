@@ -1,0 +1,404 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+    /* Colores */
+    --bg-dark: #000000;
+    --nav-pink: #f5b5c8; /* El rosa pastel de tu menú interno */
+    --text-light: #ffffff; 
+    --about-bg: #111111;
+    
+    /* Tipografías de Google Fonts */
+    --font-title: 'Great Vibes', cursive;
+    --font-subtitle: 'Cinzel', serif;
+    --font-links: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: var(--font-links);
+    color: var(--text-light);
+    overflow-x: hidden; /* Evita que la página se desborde hacia los lados */
+}
+
+/* =========================================
+   2. ESTILOS DE LA PORTADA (index.html)
+   ========================================= */
+
+/* Header y Menú Hamburguesa (Solo Portada) */
+.main-header {
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 24px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sección Principal (Hero) */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+/* Gráficos de Fondo (Portada) */
+.hero-graphics {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background-color: #000000; /* El fondo negro que oscurecerá la imagen */
+}
+
+.main-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena toda la pantalla sin deformarse */
+    object-position: center; /* Fuerza el centrado absoluto horizontal y vertical */
+    opacity: 0.65; /* Baja la opacidad para oscurecer la ilustración (puedes jugar con valores entre 0.5 y 0.8) */
+}
+
+.deco-icon {
+    position: absolute;
+    width: 90px;
+    height: auto;
+    opacity: 0.95;
+}
+
+.icon-1 { top: 40px; left: 40px; }
+.icon-2 { bottom: 40px; right: 40px; }
+
+/* Contenido de Textos y Enlaces (Portada) */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.main-title {
+    font-family: var(--font-title);
+    font-size: clamp(6rem, 15vw, 10rem);
+    font-weight: 400;
+    line-height: 0.7;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    font-family: var(--font-subtitle);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.8em;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-left: 0.8em;
+}
+
+/* Navegación Base */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.nav-links a {
+    font-family: var(--font-links);
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    text-decoration: none; 
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent; 
+    letter-spacing: 0.1em;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover portada */
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 0.7;
+}
+
+/* =========================================
+   3. ESTILOS PÁGINAS INTERNAS (Galerías)
+   ========================================= */
+
+body.internal-page {
+    background-color: var(--bg-dark);
+}
+
+/* Header Rosa (Sticky) */
+.internal-page .main-header {
+    background-color: var(--nav-pink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.internal-page .navbar {
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+}
+
+.internal-page .nav-links {
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.internal-page .nav-links a {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); 
+    opacity: 0.8;
+}
+
+.internal-page .nav-links a:hover,
+.internal-page .nav-links a.active {
+    border-bottom: 2px solid var(--text-light);
+    opacity: 1;
+}
+
+/* --- GRID DE LA GALERÍA DE DIBUJOS --- */
+.gallery-section {
+    padding: 60px 20px 60px; 
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    align-items: center;
+}
+
+.gallery-item {
+    width: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Centrar el último elemento si es impar */
+.gallery-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 15px);
+}
+
+/* --- SECCIÓN ACERCA DE MÍ (ESTRUCTURA SEPARADA) --- */
+.about-section {
+    padding: 80px 20px 100px;
+    background-color: var(--about-bg);
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Coloca la cuadrícula arriba y el contacto abajo */
+    gap: 60px; /* Espacio entre el bloque de tu perfil y la zona de contacto */
+}
+
+/* Cuadrícula superior: Foto izquierda, Texto derecha */
+.about-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+}
+
+.about-content {
+    text-align: left;
+}
+
+.about-title {
+    font-family: var(--font-subtitle);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+}
+
+.about-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+}
+
+/* Zona inferior: Contacto */
+.about-contact-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Apila el título arriba y el contenido abajo */
+    align-items: center;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Título de Contacto en grande y Serif */
+.contact-title {
+    font-family: var(--font-subtitle);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Letra responsiva y muy grande */
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 40px; /* Separación con el gatito y los enlaces */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Caja que contiene el GIF y la lista */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+/* Estilos para el GIF de pixel art */
+.contact-gif img {
+    width: 100%;
+    max-width: 250px; 
+    height: auto;
+    image-rendering: pixelated; 
+}
+
+/* Contenedor de los enlaces apilados */
+.contact-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+}
+
+/* Diseño de cada botón de red social */
+.contact-links-vertical a {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-links-vertical a:hover {
+    color: var(--nav-pink);
+    transform: translateX(5px); 
+}
+
+/* Tamaño de los iconos (Instagram, TikTok, Mail) */
+.social-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain; 
+}
+
+/* =========================================
+   4. DISEÑO RESPONSIVO (Celulares y Tablets)
+   ========================================= */
+
+@media (max-width: 768px) {
+    .deco-icon { width: 50px; }
+    .icon-1 { top: 20px; left: 20px; }
+    .icon-2 { bottom: 20px; right: 20px; }
+    
+    /* En tablets/celulares, apilamos la foto arriba y el texto abajo */
+    .about-top-grid {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .about-content {
+        text-align: center; 
+    }
+    
+    .about-image img {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; 
+    }
+    .gallery-item:last-child:nth-child(odd) {
+        width: 100%; 
+    }
+    
+    .about-contact-bottom {
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}
