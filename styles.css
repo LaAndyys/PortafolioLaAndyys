@@ -402,3 +402,43 @@ body.internal-page {
         align-items: center;
     }
 }
+
+
+/* Texto de introducción en la portada */
+/* Texto de introducción en la portada */
+.intro-text {
+    font-family: var(--font-links);
+    color: var(--text-light);
+    text-align: justify;
+    max-width: 800px; /* Ampliado para acomodar la letra más grande */
+    margin-bottom: 8rem; 
+    
+    /* MODIFICACIONES PARA MAYOR PRESENCIA */
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem); /* Mucho más grande y responsivo */
+    font-weight: 500; /* Le da más cuerpo a la fuente */
+    
+    line-height: 1.6;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.9); /* Sombra ligeramente reforzada */
+}
+
+.intro-text p {
+    margin-bottom: 0.8rem; /* Separación entre los dos párrafos */
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Estilo específico para el saludo cursivo */
+.intro-greeting {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 5vw, 3.5rem); 
+    font-weight: 400; 
+    margin-bottom: 0.2rem !important; 
+    
+    /* REGLAS PARA FORZAR EL CENTRADO ABSOLUTO */
+    display: block;
+    width: 100%;
+    text-align: center;
+}
